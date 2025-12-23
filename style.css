@@ -847,6 +847,7 @@ nav a.active {
     }
 }
 
+/* Controls (jika dipakai) */
 .pdf-controls {
     display: flex;
     justify-content: center;
@@ -861,7 +862,7 @@ nav a.active {
     gap: 0.8rem;
     padding: 1.2rem 2.5rem;
     background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-    color: white;
+    color: #fff;
     font-size: 1.5rem;
     font-weight: 600;
     border: none;
@@ -876,10 +877,7 @@ nav a.active {
     box-shadow: 0 8px 25px rgba(255, 140, 66, 0.5);
 }
 
-.pdf-control-btn i {
-    font-size: 1.8rem;
-}
-
+/* PDF / Image Wrapper */
 .pdf-embed-wrapper {
     position: relative;
     width: 100%;
@@ -888,15 +886,19 @@ nav a.active {
     overflow: hidden;
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
     border: 3px solid var(--primary-color);
+    max-height: 80vh;
 }
 
-.pdf-embed-wrapper embed {
+/* IMAGE RESPONSIVE */
+.pdf-preview-img {
     width: 100%;
-    height: 600px;
+    height: auto;
     display: block;
-    border: none;
+    object-fit: contain;
+    max-height: 80vh;
 }
 
+/* Fallback (optional) */
 .pdf-fallback {
     display: none;
     flex-direction: column;
@@ -904,38 +906,37 @@ nav a.active {
     justify-content: center;
     padding: 5rem 2rem;
     text-align: center;
-    background: white;
-}
-
-.pdf-fallback i {
-    font-size: 8rem;
-    color: var(--accent-red);
-    margin-bottom: 2rem;
+    background: #fff;
 }
 
 .pdf-fallback p {
     font-size: 1.8rem;
     color: var(--text-gray);
-    margin-bottom: 2rem;
 }
 
-.btn-download-fallback {
-    display: inline-flex;
-    align-items: center;
-    gap: 1rem;
-    padding: 1.5rem 3rem;
-    background: linear-gradient(135deg, var(--accent-red), var(--primary-color));
-    color: white;
-    font-size: 1.6rem;
-    font-weight: 700;
-    border-radius: 50px;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(193, 41, 46, 0.3);
+/* Tablet */
+@media (max-width: 768px) {
+    .pdf-embed-wrapper {
+        border-radius: 12px;
+        border-width: 2px;
+        max-height: 70vh;
+    }
+
+    .pdf-preview-img {
+        max-height: 70vh;
+    }
 }
 
-.btn-download-fallback:hover {
-    transform: translateY(-5px) scale(1.05);
-    box-shadow: 0 8px 25px rgba(193, 41, 46, 0.5);
+/* Mobile */
+@media (max-width: 480px) {
+    .pdf-embed-wrapper {
+        border-radius: 10px;
+        max-height: 60vh;
+    }
+
+    .pdf-preview-img {
+        max-height: 60vh;
+    }
 }
 
 /* Footer */
